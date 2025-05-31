@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+DB_HOST=aserto-prod.cn68oku6wf3q.us-east-2.rds.amazonaws.com
+DB_USER=postgres
+
+pg_dump -h ${DB_HOST} -U ${DB_USER} tenant > tenant.sql
+
+

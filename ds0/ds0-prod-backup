@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+DB_HOST=aserto-ds0-prod.cn68oku6wf3q.us-east-2.rds.amazonaws.com
+DB_USER=postgres
+
+pg_dump -h ${DB_HOST} -U ${DB_USER} ds0 > ds0.sql
+psql -A -t -h ${DB_HOST} -U ${DB_USER} ds0 -c "SELECT schema_name FROM information_schema.schemata WHERE schema_name LIKE '%-%-%-%-%';" > ds0-roles.sql
+
+
